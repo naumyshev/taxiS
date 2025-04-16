@@ -19,8 +19,15 @@
 
 <script>
     const buttonElement = document.createElement('button')
+    buttonElement.append('Load data')
+    buttonElement.addEventListener('click', async ()=>{
+        const response = await fetch('http://localhost:3000')
+        const textResult = await response.text()
+        rootElement.append(textResult)
+    })
 
     const rootElement = document.getElementById('root')
+    rootElement.append(buttonElement)
 
 </script>
 </body>
